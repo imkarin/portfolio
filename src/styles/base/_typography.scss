@@ -1,57 +1,45 @@
 @import './variables';
 
 a, a:visited, a:hover, a:active {
-    font-size: 18px;
+    font-size: 1em;
     line-height: 32px;
-    font-weight: 300;
+    font-weight: 700;
     position: relative;
-
-    &:after {
-        position: absolute;
-        display: block;
-        content: "";
-        left: 0;
-        bottom: -6px;
-        width: 100%;
-        height: 2px;
-        transition: $transition-300;
-    }
-    
-    &:hover:after {
-        height: 36px;
-        background-color: rgba(255, 255, 255, .2);
-    }
+    color: $color-link;
     
     @media screen and (max-width: $bp-tablet) {
-        font-size: 16px;
-        line-height: 30px;
-        font-weight: 300;
     }
 
     @media screen and (max-width: $bp-mobile) {
-        font-size: 16px;
-        line-height: 30px;
-        font-weight: 300;
     }
 }
 
 h1 {
-    //mobile + tablet
+    // mobile + tablet
     color: $color-heading;
-    font-size: 34pt;
+    font-size: 32px;
     line-height: 1.3em;
-    font-weight: 500;
+    font-weight: 700;
     margin-bottom: 16px;
 
     > span {
         display: block;
     }
-
+    
+    // tablet
+    @media screen and (min-width: $bp-tablet) {
+        font-size: 42px;
+    }
+    
     // desktop small
     @media screen and (min-width: $bp-desktop-sm) {
         margin-bottom: 24px;
+        font-size: 60px;
+    }
+
+    // desktop md and up
+    @media screen and (min-width: $bp-desktop-md) {
         font-size: 72px;
-        letter-spacing: -0.5px;
     }
 }
 

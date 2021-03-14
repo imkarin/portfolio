@@ -1,0 +1,7 @@
+.SocialLinkList {
+    display: flex;
+
+    @media screen and (min-width: 100px) {
+        flex-direction: row;
+    }
+}

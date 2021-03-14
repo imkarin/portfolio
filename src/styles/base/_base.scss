@@ -15,28 +15,48 @@ body {
     }
 }
 
+// Standard side padding of the page
+.side-padding-page {
+    padding: 0 $side-padding-mobile;
+
+    @media screen and (min-width: $bp-tablet) {
+        padding: 0 $side-padding-tablet
+    }
+
+    @media screen and (min-width: $bp-desktop-sm) {
+        padding: 0 $side-padding-desktop;
+    }
+}
+
 // Layout styling (sections)
 .Layout {
     background-color: $offwhite;
     
     // main is 1712px wide, divided in 2 sections
     main {
+        @extend .side-padding-page;
         height: 100vh;
         width: 100%;
         max-width: 1712px;
         margin: 0 auto;
         display: flex;
-        flex-direction: row;
+        flex-direction: column;
+
+        @media screen and (min-width: $bp-tablet) {
+            flex-direction: row;
+        }
     
-        section {
+        > section {
             // mobile
-            width: 50%;
+            width: 100%;
             display: flex;
             flex-direction: column;
             flex-wrap: wrap;
+            align-items: flex-start;
 
             // tablet and up
             @media screen and (min-width: $bp-tablet) {
+                width: 50%;
             }
             
             // "special" style classes
