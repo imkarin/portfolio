@@ -1,0 +1,35 @@
+// Base fonts
+$base-font: Poppins, Helvetica, sans-serif;
+
+// Colors
+$black: #000000;
+$white: #FFFFFF;
+$offwhite: #FDFDFD;
+
+$color-text: #A3A3A3;
+$color-heading: #0E0E0E;
+$color-highlight: #0E0E0E;
+
+// Pallette
+$color-riverbed: #414756;
+
+// Breakpoints for for min-width
+$bp-mobile: 320px;
+$bp-tablet: 480px;
+$bp-desktop-sm: 1120px;
+$bp-desktop-md: 1280px;
+
+// Margins
+$margin-sections-mobile: 40px;
+$margin-sections-tablet: 64px;
+$margin-sections-desktop: 72px;
+
+$side-padding-mobile: 32px;
+$side-padding-tablet: 48px;
+$side-padding-desktop: 80px;
+
+// Transitions
+$transition-200: all .2s ease;
+$transition-300: all .3s ease;
+$transition-400: all .4s ease;
+$transition-500: all .5s ease;

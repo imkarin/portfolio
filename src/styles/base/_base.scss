@@ -1,0 +1,77 @@
+body {
+    color: $color-text;
+    font-family: $base-font;
+    font-size: 11pt;
+    font-weight: 400;
+    background: $offwhite;
+
+    overflow-x: hidden;
+    scroll-behavior: smooth;
+        
+    *::selection {
+        background-color: darken($black, 2%);
+        color: $white;
+    }
+}
+
+// side padding responsive
+.side-padding {
+    padding: $margin-sections-mobile $side-padding-mobile;
+
+    @media screen and (min-width: $bp-tablet) {
+        padding: $margin-sections-tablet $side-padding-tablet;
+    }
+
+    @media screen and (min-width: $bp-desktop-sm) {
+        padding: $margin-sections-desktop $side-padding-desktop;
+    }
+}
+
+.Layout {
+    background-color: $offwhite;
+    
+    // make all sections 1184px centered
+    section {
+        // mobile
+        @extend .side-padding;
+        margin: 0 auto;
+        max-width: 1712px;
+        display: flex;
+        flex-wrap: wrap;
+        flex-direction: column;
+
+        // tablet and up
+        @media screen and (min-width: $bp-tablet) {
+            flex-direction: row;
+            justify-content: space-between;
+        }
+        
+        // "special" style classes
+        &.double-padding-top {
+            padding-top: 2 * $margin-sections-mobile;
+
+            @media screen and (min-width: $bp-tablet) {
+                padding-top: 2 * $margin-sections-tablet;
+            }
+
+            @media screen and (min-width: $bp-desktop-sm) {
+                padding-top: 2 * $margin-sections-desktop;
+            }
+        }
+
+        &.strip-padding-top {
+            padding-top: 0;
+        }
+
+        &.centered {
+            justify-content: center;
+            text-align: center;
+        }
+
+        &.fullwidth {
+            max-width: 100%;
+            padding-left: 0;
+            padding-right: 0;
+        }   
+    }
+}
