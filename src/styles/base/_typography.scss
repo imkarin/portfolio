@@ -39,8 +39,13 @@ h1 {
     //mobile + tablet
     color: $color-heading;
     font-size: 64px;
+    line-height: 1.2em;
     font-weight: 600;
     margin-bottom: 16px;
+
+    > span {
+        display: block;
+    }
 
     // desktop small
     @media screen and (min-width: $bp-desktop-sm) {

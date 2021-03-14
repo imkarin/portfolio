@@ -1,0 +1,12 @@
+.Icon {
+    width: 80px;
+    margin-bottom: 32px;
+
+    &.social {
+        max-width: 24px;
+        width: 100%;
+        height: auto;
+        align-self: center;
+        margin-bottom: 0;
+    }
+}

@@ -1,5 +1,6 @@
 import Head from 'next/head'
 import Layout from '../components/Layout'
+import TextBlock from '../components/molecules/TextBlock'
 
 export default function Home() {
   return (
@@ -10,8 +11,10 @@ export default function Home() {
       </Head>
 
       <Layout>
-          <h1>Hoi, ik ben <span>Karin Meijvogel</span></h1>
-          <p>Welcome to my portfolio.</p>
+          <TextBlock titleSize="1" 
+                     title="Hoi, ik ben /Karin Meijvogel" 
+                     text="Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet. 
+                     Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet." />
       </Layout>
     </>
   )

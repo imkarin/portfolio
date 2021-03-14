@@ -1,0 +1,20 @@
+@import "../../../styles/base/variables.scss";
+
+.Button {
+    padding: 12px 32px;
+    border: 2px solid #3DB4E5;
+    border-radius: 64px;
+    transition: background-image $transition-300;
+
+    &:hover {
+        color: #ffffff;
+        border: none;
+        background-image: url('/images/bg-blue-blur.png');
+        background-size: cover;
+        transition: background-image $transition-300;
+    }
+
+    &:after, &:hover:after {
+        display: none;
+    }
+}
