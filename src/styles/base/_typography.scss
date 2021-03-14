@@ -38,9 +38,9 @@ a, a:visited, a:hover, a:active {
 h1 {
     //mobile + tablet
     color: $color-heading;
-    font-size: 64px;
-    line-height: 1.2em;
-    font-weight: 600;
+    font-size: 34pt;
+    line-height: 1.3em;
+    font-weight: 500;
     margin-bottom: 16px;
 
     > span {
@@ -49,9 +49,9 @@ h1 {
 
     // desktop small
     @media screen and (min-width: $bp-desktop-sm) {
-        margin-bottom: 32px;
-        font-size: 52px;
-        font-weight: 600;
+        margin-bottom: 24px;
+        font-size: 72px;
+        letter-spacing: -0.5px;
     }
 }
 

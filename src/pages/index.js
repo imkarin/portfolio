@@ -1,6 +1,6 @@
 import Head from 'next/head'
 import Layout from '../components/Layout'
-import TextBlock from '../components/molecules/TextBlock'
+import LeftSideText from '../components/organisms/LeftSideText'
 
 export default function Home() {
   return (
@@ -11,10 +11,16 @@ export default function Home() {
       </Head>
 
       <Layout>
-          <TextBlock titleSize="1" 
-                     title="Hoi, ik ben /Karin Meijvogel" 
-                     text="Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet. 
-                     Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet." />
+        <section className="text">
+          <LeftSideText title="Hoi, ik ben /Karin Meijvogel" 
+                        text="Ik ben een creative developer met een passie voor data en design.
+                        Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet. Lorem ipsum
+                        dolor sit amet." />
+        </section>
+
+        <section className="projects">
+          {/* Projects here */}
+        </section>
       </Layout>
     </>
   )

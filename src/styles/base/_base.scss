@@ -3,6 +3,7 @@ body {
     font-family: $base-font;
     font-size: 11pt;
     font-weight: 400;
+    line-height: 1.6em;
     background: $offwhite;
 
     overflow-x: hidden;
@@ -14,64 +15,57 @@ body {
     }
 }
 
-// side padding responsive
-.side-padding {
-    padding: $margin-sections-mobile $side-padding-mobile;
-
-    @media screen and (min-width: $bp-tablet) {
-        padding: $margin-sections-tablet $side-padding-tablet;
-    }
-
-    @media screen and (min-width: $bp-desktop-sm) {
-        padding: $margin-sections-desktop $side-padding-desktop;
-    }
-}
-
+// Layout styling (sections)
 .Layout {
     background-color: $offwhite;
     
-    // make all sections 1184px centered
-    section {
-        // mobile
-        @extend .side-padding;
-        margin: 0 auto;
+    // main is 1712px wide, divided in 2 sections
+    main {
+        height: 100vh;
+        width: 100%;
         max-width: 1712px;
+        margin: 0 auto;
         display: flex;
-        flex-wrap: wrap;
-        flex-direction: column;
+        flex-direction: row;
+    
+        section {
+            // mobile
+            width: 50%;
+            display: flex;
+            flex-direction: column;
+            flex-wrap: wrap;
 
-        // tablet and up
-        @media screen and (min-width: $bp-tablet) {
-            flex-direction: row;
-            justify-content: space-between;
-        }
-        
-        // "special" style classes
-        &.double-padding-top {
-            padding-top: 2 * $margin-sections-mobile;
-
+            // tablet and up
             @media screen and (min-width: $bp-tablet) {
-                padding-top: 2 * $margin-sections-tablet;
+            }
+            
+            // "special" style classes
+            &.double-padding-top {
+                padding-top: 2 * $margin-sections-mobile;
+
+                @media screen and (min-width: $bp-tablet) {
+                    padding-top: 2 * $margin-sections-tablet;
+                }
+
+                @media screen and (min-width: $bp-desktop-sm) {
+                    padding-top: 2 * $margin-sections-desktop;
+                }
             }
 
-            @media screen and (min-width: $bp-desktop-sm) {
-                padding-top: 2 * $margin-sections-desktop;
+            &.strip-padding-top {
+                padding-top: 0;
             }
-        }
 
-        &.strip-padding-top {
-            padding-top: 0;
-        }
+            &.centered {
+                justify-content: center;
+                text-align: center;
+            }
 
-        &.centered {
-            justify-content: center;
-            text-align: center;
+            &.fullwidth {
+                max-width: 100%;
+                padding-left: 0;
+                padding-right: 0;
+            }   
         }
-
-        &.fullwidth {
-            max-width: 100%;
-            padding-left: 0;
-            padding-right: 0;
-        }   
     }
 }
