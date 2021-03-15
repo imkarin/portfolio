@@ -1,17 +1,19 @@
+@import './variables.scss';
+
 body {
-    color: $color-text;
+    background: $color-background;
     font-family: $base-font;
     font-size: 11pt;
     font-weight: 400;
-    line-height: 1.6em;
-    background: $offwhite;
+    line-height: 1.75em;
+    color: $color-text;
 
     overflow-x: hidden;
     scroll-behavior: smooth;
         
     *::selection {
-        background-color: darken($black, 2%);
-        color: $white;
+        background-color: $color-selection-bg;
+        color: $color-selection-text;
     }
 }
 
@@ -30,7 +32,6 @@ body {
 
 // Layout styling (sections)
 .Layout {
-    background-color: $offwhite;
     
     // main is 1712px wide, divided in 2 sections
     main {
