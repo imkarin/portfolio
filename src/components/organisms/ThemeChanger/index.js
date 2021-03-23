@@ -3,12 +3,16 @@ import styles from './style.module.scss'
 
 const ThemeChanger = () => {
     const { theme, setTheme } = useTheme()
+
+    const toggleTheme = () => {
+      theme === 'dark' ? setTheme('light') : setTheme('dark')
+    }
   
     return (
-      <div>
-        The current theme is: {theme}
-        <button onClick={() => setTheme('light')}>Light Mode</button>
-        <button onClick={() => setTheme('dark')}>Dark Mode</button>
+      <div className={styles.ThemeChanger}>
+        <button onClick={toggleTheme}>
+          {theme === 'dark' ? '🌙' : '☀️'}
+        </button>
       </div>
     )
   }

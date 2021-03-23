@@ -18,7 +18,7 @@ export default function Home() {
 
       <Layout>
         <section className="text">
-        <ThemeChanger />
+          <ThemeChanger />
           <LeftSideText title="Hello, I'm /Karin Meijvogel" 
                         text="Creative developer with a passion for data and design.
                         I love learning about technology in all shapes and forms:

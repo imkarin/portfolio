@@ -1,2 +1,11 @@
 .ThemeChanger {
+    > * {
+        transition: 0.2s;
+        }
+
+    > *:hover {
+            transition: 0.2s;
+            opacity: .5;
+            cursor: pointer;
+        }
 }

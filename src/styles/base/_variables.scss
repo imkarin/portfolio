@@ -4,10 +4,10 @@ $base-font: Manrope, Helvetica, sans-serif;
 // Theme (Dark/Light)
 :root {
     --background: #FFFFFF;
-    --color-text: #b4b4bb;
+    --color-text: #a7a7b1;
     --color-heading: #161616;
     --color-link: #161616;
-    --color-selection: #7c568b;
+    --color-selection: #7c568bde;
     --color-selection-text: #FFFFFF;
 }
   
@@ -16,7 +16,7 @@ $base-font: Manrope, Helvetica, sans-serif;
     --color-text: #8b8b8f;
     --color-heading: #FDFDFD;
     --color-link: #FDFDFD;
-    --color-selection: #7b5b88;
+    --color-selection: #5730666b;
     --color-selection-text: #0E0E0E;
 }
 
