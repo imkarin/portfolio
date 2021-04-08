@@ -3,12 +3,21 @@ import Layout from '../components/Layout'
 import LeftSideText from '../components/organisms/LeftSideText'
 import SocialLinkList from '../components/organisms/SocialLinkList'
 import ThemeChanger from '../components/organisms/ThemeChanger'
-
-
-const socials = [{imgSrc: './img/github.png', imgAlt: 'GitHub logo', href: 'https://github.com/imkarin', text: 'GitHub'},
-                  {imgSrc: './img/li.png', imgAlt: 'LinkedIn logo', href: 'https://linkedin.com/in/karin-meijvogel', text: 'LinkedIn'}]
+import { useTheme } from 'next-themes'
 
 export default function Home() {
+  const { theme, setTheme } = useTheme()
+
+  const socials = [{imgSrc: `./img/github${theme === 'dark' ? '-white' : '' }.png`,   // '-white' img in darkmode
+                    imgAlt: 'GitHub logo', 
+                    href: 'https://github.com/imkarin', 
+                    text: 'GitHub'},
+                  
+                   {imgSrc: `./img/li${theme === 'dark' ? '-white' : ''}.png`,
+                    imgAlt: 'LinkedIn logo', 
+                    href: 'https://linkedin.com/in/karin-meijvogel', 
+                    text: 'LinkedIn'}]
+
   return (
     <>
       <Head>
