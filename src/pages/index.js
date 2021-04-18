@@ -4,6 +4,7 @@ import Head from 'next/head'
 import Layout from '../components/Layout'
 import LeftSideText from '../components/organisms/LeftSideText'
 import SocialLinkList from '../components/organisms/SocialLinkList'
+import ProjectBlock from '../components/organisms/ProjectBlock'
 import ThemeChanger from '../components/organisms/ThemeChanger'
 
 export default function Home() {
@@ -62,7 +63,11 @@ export default function Home() {
 
         <section className="projects">
           {items.map(item =>
-            <div key={item.id}>{item.name}</div>)}
+            <ProjectBlock url={item.html_url}
+                          key={item.id}
+                          tags={item.id}
+                          title={item.name}
+                          text={item.description} />)}
           {/* Projects here */}
         </section>
       </Layout>
