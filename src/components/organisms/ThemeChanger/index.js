@@ -11,7 +11,7 @@ const ThemeChanger = () => {
     return (
       <div className={styles.ThemeChanger}>
         <button onClick={toggleTheme}>
-          {theme === 'dark' ? '🌙' : '☀️'}
+          {theme === 'light' ? '☀️' : '🌙'}
         </button>
       </div>
     )

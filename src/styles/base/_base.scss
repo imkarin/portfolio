@@ -32,7 +32,6 @@ body {
 
 // Layout styling (sections)
 .Layout {
-    
     // main is 1712px wide, divided in 2 sections
     main {
         @extend .side-padding-page;
@@ -61,32 +60,32 @@ body {
             }
             
             // "special" style classes
-            &.double-padding-top {
-                padding-top: 2 * $margin-sections-mobile;
+            // &.double-padding-top {
+            //     padding-top: 2 * $margin-sections-mobile;
 
-                @media screen and (min-width: $bp-tablet) {
-                    padding-top: 2 * $margin-sections-tablet;
-                }
+            //     @media screen and (min-width: $bp-tablet) {
+            //         padding-top: 2 * $margin-sections-tablet;
+            //     }
 
-                @media screen and (min-width: $bp-desktop-sm) {
-                    padding-top: 2 * $margin-sections-desktop;
-                }
-            }
+            //     @media screen and (min-width: $bp-desktop-sm) {
+            //         padding-top: 2 * $margin-sections-desktop;
+            //     }
+            // }
 
-            &.strip-padding-top {
-                padding-top: 0;
-            }
+            // &.strip-padding-top {
+            //     padding-top: 0;
+            // }
 
-            &.centered {
-                justify-content: center;
-                text-align: center;
-            }
+            // &.centered {
+            //     justify-content: center;
+            //     text-align: center;
+            // }
 
-            &.fullwidth {
-                max-width: 100%;
-                padding-left: 0;
-                padding-right: 0;
-            }   
+            // &.fullwidth {
+            //     max-width: 100%;
+            //     padding-left: 0;
+            //     padding-right: 0;
+            // }   
         }
     }
 }

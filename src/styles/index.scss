@@ -1,19 +1,21 @@
 @import './base/variables', './base/fonts', './base/reset', './base/base', './base/typography';
 
-.text {
+section {
     padding-top: 64px;
     padding-bottom: 64px;
     justify-content: space-between;
 
-    > :nth-child(2) {
-        transform: translateY(-10%);
+    &.text {
+        > :nth-child(2) {
+            transform: translateY(-10%);
 
-        @media screen and (min-width: $bp-tablet) {
-            margin-left: $col-plus-gutter-tablet;
-        }
+            @media screen and (min-width: $bp-tablet) {
+                margin-left: $col-plus-gutter-tablet;
+            }
 
-        @media screen and (min-width: $bp-desktop-sm) {
-            margin-left: $col-plus-gutter-desktop;
+            @media screen and (min-width: $bp-desktop-sm) {
+                margin-left: $col-plus-gutter-desktop;
+            }
         }
     }
 }
