@@ -1,9 +1,9 @@
 import styles from './style.module.scss'
 
-const Logo = props => {
+const Paragraph = props => {
     return (
         <p className={styles.Paragraph}>{props.children}</p>
     )
 }
 
-export default Logo
+export default Paragraph

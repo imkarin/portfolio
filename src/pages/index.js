@@ -33,7 +33,7 @@ export default function Home() {
   }, [])
 
   // Social link images
-  const socials = [{imgSrc: `./img/github${theme === 'light' ? '' : '-white' }.png`,   // '-white' img in darkmode
+  const socials = [{imgSrc: `./img/github${theme === 'light' ? '' : '-white'}.png`,   // '-white' img in darkmode
                     imgAlt: 'GitHub logo', 
                     href: 'https://github.com/imkarin', 
                     text: 'GitHub'},
@@ -65,7 +65,7 @@ export default function Home() {
           {items.map(item =>
             <ProjectBlock url={item.html_url}
                           key={item.id}
-                          tags={item.id}
+                          tags='JavaScript'
                           title={item.name}
                           text={item.description} />)}
           {/* Projects here */}
