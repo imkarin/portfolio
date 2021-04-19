@@ -1,3 +1,5 @@
+@import './bp_variables.scss';
+
 // Base fonts
 $base-font: Manrope, Helvetica, sans-serif;
 
@@ -32,11 +34,8 @@ $color-link: var(--color-link);
 $color-selection-bg: var(--color-selection);
 $color-selection-text: var(--color-selection-text);
 
-// Breakpoints for for min-width
-$bp-mobile: 320px;
-$bp-tablet: 480px;
-$bp-desktop-sm: 1120px;
-$bp-desktop-md: 1280px;
+// Breakpoints (now from ./bp_variables)
+// ...
 
 // Grid
 $col-mobile: 32px;
@@ -50,7 +49,6 @@ $col-plus-gutter-tablet: 72px;
 $col-desktop: 80px;
 $gutter-desktop: 16px;
 $col-plus-gutter-desktop: 96px;
-
 
 
 // Margins

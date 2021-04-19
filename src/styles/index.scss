@@ -1,9 +1,14 @@
 @import './base/variables', './base/fonts', './base/reset', './base/base', './base/typography';
 
 section {
-    padding-top: 64px;
-    padding-bottom: 64px;
     justify-content: space-between;
+    padding-top: 46px;
+
+    // Starting at tablet width
+    @media only screen and (min-width: $bp-tablet) {
+        padding-top: 64px;
+        padding-bottom: 64px;        
+    }
 
     &.text {
         display: flex;
@@ -27,13 +32,20 @@ section {
 
     // Right/bottom section
     &:last-child {
-        padding-left: 72px;
         display: block;
-        max-height: 100vh;
         overflow: auto;
-    
+        padding-bottom: 22px;
+        
         &::-webkit-scrollbar {
             display: none;
         }
+        
+        // Starting at tablet width
+        @media only screen and (min-width: $bp-tablet) {
+            max-height: 100vh;
+            padding-left: 72px;
+            padding-bottom: 36px;
+        }
+
     }
 }

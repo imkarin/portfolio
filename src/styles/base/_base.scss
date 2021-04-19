@@ -35,7 +35,6 @@ body {
     // main is 1712px wide, divided in 2 sections
     main {
         @extend .side-padding-page;
-        height: 100vh;
         width: 100%;
         max-width: 1712px;
         margin: 0 auto;

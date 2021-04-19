@@ -1,11 +1,24 @@
+@import '../../../styles/base/bp_variables';
+
 .ThemeChanger {
+    transform: translateY(-16px);
+    margin-bottom: 24px;
+    align-self: flex-end;
+    
     > * {
         transition: 0.2s;
-        }
+    }
 
     > *:hover {
             transition: 0.2s;
             opacity: .5;
             cursor: pointer;
-        }
+    }
+
+    // Styling starting at tablet-width
+    @media only screen and (min-width: $bp-tablet) {
+        transform: none;
+        margin-bottom: 0;
+        align-self: flex-start;
+    }
 }
