@@ -37,6 +37,8 @@ section {
         padding-bottom: 22px;
 
         // Make scrollbar invisible     
+        scrollbar-width: none;
+        
         &::-webkit-scrollbar {
             display: none;
             width: 0;
