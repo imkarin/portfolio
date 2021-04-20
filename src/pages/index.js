@@ -83,7 +83,7 @@ export default function Home() {
           {items.map(item =>
             <ProjectBlock url={item.html_url}
                           key={item.id}
-                          tags={item.labels}
+                          tags='' // {items.labels}
                           title={item.name}
                           text={item.description} />)}
         </section>
