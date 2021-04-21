@@ -16,12 +16,12 @@ export async function getStaticProps() {
       query: gql`
       query MyQuery {
         user(login: "imkarin") {
-          repositories(first: 30, orderBy: {field: CREATED_AT, direction: DESC}, privacy: PUBLIC) {
+          repositories(first: 30, orderBy: {field: CREATED_AT, direction: DESC}, privacy: PUBLIC, ownerAffiliations: OWNER) {
             nodes {
               id
               name
               description
-              projectsUrl
+              url
               repositoryTopics(first: 10) {
                 nodes {
                   topic {
@@ -37,6 +37,10 @@ export async function getStaticProps() {
     });
     
     const repos = _.cloneDeep(data.user.repositories.nodes)
+    
+    // Remove GitHub tutorial repositories 
+    const reposToRemove = ['merge-conflicts', 'community-starter-kit']
+    console.log(repos.filter(repo => reposToRemove.includes(repo.name)))
 
     // Add 'topics' array to every repository
     repos.forEach(repo => {
@@ -88,7 +92,7 @@ export default function Home({ repos }) {
         <section className="projects">
             {
             repos.map(repo =>
-                <ProjectBlock url={repo.html_url}
+                <ProjectBlock url={repo.url}
                 key={repo.id}
                 tags={repo.topics}
                 title={repo.name}
