@@ -1,41 +1,60 @@
 // Packages
-import { useTheme } from 'next-themes'
-import { useState, useEffect } from 'react'
-import Head from 'next/head'
-import Layout from '../components/Layout'
-import LeftSideText from '../components/organisms/LeftSideText'
-import SocialLinkList from '../components/organisms/SocialLinkList'
-import ProjectBlock from '../components/organisms/ProjectBlock'
-import ThemeChanger from '../components/organisms/ThemeChanger'
+import * as _ from 'lodash';
+import client from '../apollo/apollo-client';
+import { gql } from '@apollo/client';
+import { useTheme } from 'next-themes';
+import Head from 'next/head';
+import Layout from '../components/Layout';
+import LeftSideText from '../components/organisms/LeftSideText';
+import SocialLinkList from '../components/organisms/SocialLinkList';
+import ProjectBlock from '../components/organisms/ProjectBlock';
+import ThemeChanger from '../components/organisms/ThemeChanger';
 
-// Octokit (github) rest api package
-const { Octokit } = require('@octokit/rest')
-const octokit = new Octokit()
+// Fetch Github data (GraphQL)
+export async function getStaticProps() {
+    const { data } = await client.query({
+      query: gql`
+      query MyQuery {
+        user(login: "imkarin") {
+          repositories(first: 30, orderBy: {field: CREATED_AT, direction: DESC}, privacy: PUBLIC) {
+            nodes {
+              id
+              name
+              description
+              projectsUrl
+              repositoryTopics(first: 10) {
+                nodes {
+                  topic {
+                    name
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+      `,
+    });
+    
+    const repos = _.cloneDeep(data.user.repositories.nodes)
 
-
-// Home page
-export default function Home() {
-  const { theme, setTheme } = useTheme()
-
-  // Fetch Github data
-  const [error, setError] = useState(null);
-  const [items, setItems] = useState([]);
-
-  // Note: the empty deps array [] means this useEffect will run once similar to componentDidMount()
-  useEffect(() => {
-    octokit.rest.repos.listForUser({   // fetch all repos
-      username: 'imkarin',
+    // Add 'topics' array to every repository
+    repos.forEach(repo => {
+        const topics = []
+        repo.repositoryTopics.nodes.forEach(topicsNode => topics.push(topicsNode.topic.name))
+        repo.topics = topics
     })
-    .then((res) => {
-      setItems(res.data)
-    }, 
 
-    // Note: it's important to handle errors here instead of a catch() block so that we don't swallow exceptions from actual bugs in components.
-    (error) => {
-      setError(error);  
-    })    
-  }, [])
+    return {
+      props: {
+        repos: repos
+      },
+   };
+}
 
+// Home page component
+export default function Home({ repos }) {
+  const { theme, setTheme } = useTheme()
 
   // Social link images
   const socials = [{imgSrc: `./img/github${theme === 'light' ? '' : '-white'}.png`,   // '-white' img in darkmode
@@ -66,15 +85,17 @@ export default function Home() {
           <SocialLinkList socials={socials} />
         </section>
 
-        {/* { items.forEach(item => {console.log('onder', item.labels)}) } */}
-
         <section className="projects">
-          {items.map(item =>
-            <ProjectBlock url={item.html_url}
-                          key={item.id}
-                          tags='' // {items.labels}
-                          title={item.name}
-                          text={item.description} />)}
+            {
+            repos.map(repo =>
+                <ProjectBlock url={repo.html_url}
+                key={repo.id}
+                tags={repo.topics}
+                title={repo.name}
+                text={repo.description} />
+                )
+            }
+            
         </section>
       </Layout>
     </>
