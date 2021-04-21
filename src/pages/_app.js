@@ -3,7 +3,7 @@ import '../styles/index.scss'
 
 function MyApp({ Component, pageProps }) {
   return (
-    <ThemeProvider>
+    <ThemeProvider storageKey='themey'>
       <Component {...pageProps} />
     </ThemeProvider>
   )

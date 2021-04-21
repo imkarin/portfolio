@@ -9,6 +9,7 @@ import LeftSideText from '../components/organisms/LeftSideText';
 import SocialLinkList from '../components/organisms/SocialLinkList';
 import ProjectBlock from '../components/organisms/ProjectBlock';
 import ThemeChanger from '../components/organisms/ThemeChanger';
+import { useEffect } from 'react';
 
 // Fetch Github data (GraphQL)
 export async function getStaticProps() {
@@ -60,6 +61,11 @@ export async function getStaticProps() {
 export default function Home({ repos }) {
   const { theme, setTheme } = useTheme()
 
+  // Set default theme to dark 
+  useEffect(() => {
+    setTheme('dark')
+  }, [])
+
   // Social link images
   const socials = [{imgSrc: `./img/github${theme === 'light' ? '' : '-white'}.png`,   // '-white' img in darkmode
                     imgAlt: 'GitHub logo', 
@@ -97,7 +103,7 @@ export default function Home({ repos }) {
                 tags={repo.topics}
                 title={repo.name}
                 text={repo.description} />
-                )
+            )
             }
             
         </section>
