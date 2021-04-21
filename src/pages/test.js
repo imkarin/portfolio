@@ -5,31 +5,32 @@ import { gql } from '@apollo/client';
 export async function getStaticProps() {
     const { data } = await client.query({
       query: gql`
-        query {
-            repository(owner:"octocat", name:"Hello-World") {
-            issues(last:20, states:CLOSED) {
-                edges {
-                node {
-                    title
-                    url
-                    labels(first:5) {
-                    edges {
-                        node {
-                        name
-                        }
-                    }
-                    }
+      query MyQuery {
+        user(login: "imkarin") {
+          repositories(first: 30, orderBy: {field: CREATED_AT, direction: DESC}, privacy: PUBLIC) {
+            nodes {
+              id
+              name
+              description
+              projectsUrl
+              repositoryTopics(first: 10) {
+                nodes {
+                  topic {
+                    name
+                  }
                 }
-                }
+              }
             }
-            }
+          }
         }
+      }
+      
       `,
     });
 
     return {
       props: {
-        repos: data
+        repos: data.user.repositories.nodes
       },
    };
 }
@@ -38,8 +39,9 @@ export async function getStaticProps() {
 export default function test({ repos }) {
     return (
         <ul>
-            {repos.repository.issues.edges.map(issueEdge => (
-                <li key={issueEdge.node.url}>{issueEdge.node.title}</li>
+            {console.log(repos)}
+            {repos.map(repo => (
+                <li key={repo.id}>{repo.name}</li>
             ))}
         </ul>
     )
