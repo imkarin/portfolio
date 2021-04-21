@@ -9,7 +9,7 @@ const SocialLink = props => {
     return (
         <div className={styles.SocialLink}>
             <Link href={props.href}>
-                <a>
+                <a target='_blank'>
                     <Icon social src={props.imgSrc} alt={props.imgAlt} />
                     {props.children}
                     <Icon social src={theme === 'light' ? './img/linkarrow.png' : './img/linkarrow-white.png'}
