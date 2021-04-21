@@ -36,11 +36,11 @@ export async function getStaticProps() {
       `,
     });
     
-    const repos = _.cloneDeep(data.user.repositories.nodes)
+    let repos = _.cloneDeep(data.user.repositories.nodes)
     
     // Remove GitHub tutorial repositories 
     const reposToRemove = ['merge-conflicts', 'community-starter-kit']
-    console.log(repos.filter(repo => reposToRemove.includes(repo.name)))
+    repos = repos.filter(repo => !reposToRemove.includes(repo.name))
 
     // Add 'topics' array to every repository
     repos.forEach(repo => {
