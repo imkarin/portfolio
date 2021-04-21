@@ -13,7 +13,7 @@ const { Octokit } = require('@octokit/rest')
 const octokit = new Octokit()
 
 
-// Home apge
+// Home page
 export default function Home() {
   const { theme, setTheme } = useTheme()
 
@@ -33,18 +33,7 @@ export default function Home() {
     // Note: it's important to handle errors here instead of a catch() block so that we don't swallow exceptions from actual bugs in components.
     (error) => {
       setError(error);  
-    })
-    
-    // // then fetch labels for every repo
-    // .then(() => {
-    //   data.forEach(async (item) => {
-    //     item.labels = await octokit.rest.repos.getAllTopics({
-    //     owner: 'imkarin',
-    //     repo: item.name
-    //     }).then(r => r.data.names)
-    //   })      
-    // })
-    
+    })    
   }, [])
 
 
