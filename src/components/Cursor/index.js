@@ -3,9 +3,14 @@ import { useEffect, useRef } from 'react';
 import { useTheme } from 'next-themes';
 
 const Cursor = props => {
+    // States
     const { theme, setTheme } = useTheme()
-    const themeClass = theme === 'light' ? styles.lightTheme : styles.darkTheme
     const cursorRef = useRef(null)
+    
+    // Classes based on state
+    const themeClass = theme === 'light' ? styles.lightTheme : styles.darkTheme
+    const hoverLinkClass = props.hoverLink ? styles.hoverLink : ' '
+
 
     useEffect(() => {
         document.addEventListener('mousemove', event => {
@@ -18,8 +23,10 @@ const Cursor = props => {
     }, []);
 
     return (
-        <div className={styles.Cursor + ' ' + themeClass} ref={cursorRef}>
+        <div className ={ styles.Cursor + ' ' + themeClass + ' ' + hoverLinkClass }
+             ref = { cursorRef }>
             <div></div>
+            <div className={styles.Pika}></div>
         </div>
     )
 }

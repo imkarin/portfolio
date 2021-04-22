@@ -3,7 +3,7 @@ import * as _ from 'lodash';
 import client from '../apollo/apollo-client';
 import { gql } from '@apollo/client';
 import { useTheme } from 'next-themes';
-import { useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import Head from 'next/head';
 
 import Cursor from '../components/Cursor'
@@ -12,6 +12,8 @@ import LeftSideText from '../components/organisms/LeftSideText';
 import SocialLinkList from '../components/organisms/SocialLinkList';
 import ProjectBlock from '../components/organisms/ProjectBlock';
 import ThemeChanger from '../components/organisms/ThemeChanger';
+
+import Test from '../components/test'
 
 
 // Fetch Github data (GraphQL)
@@ -62,7 +64,9 @@ export async function getStaticProps() {
 
 // Home page component
 export default function Home({ repos }) {
+  // States
   const { theme, setTheme } = useTheme()
+  const [hoverLink, setHoverLink] = useState(false)
 
   // Set default theme to dark 
   useEffect(() => {
@@ -79,6 +83,9 @@ export default function Home({ repos }) {
                     imgAlt: 'LinkedIn logo', 
                     href: 'https://linkedin.com/in/karin-meijvogel', 
                     text: 'LinkedIn'}]
+  
+  // Function to update cursor on socialIcon hover
+  const hoverLinkHandler = (e) => (setHoverLink(!hoverLink))
 
   return (
     <>
@@ -88,8 +95,11 @@ export default function Home({ repos }) {
       </Head>
 
       <Layout>
-        <Cursor />
+        <Cursor hoverLink = {hoverLink} />
+
         <section className="text">
+        <Test mouseEnterHandler = { hoverLinkHandler }
+              mouseLeaveHandler = { hoverLinkHandler } />
           <ThemeChanger />
           <LeftSideText title="Hello, I'm /Karin Meijvogel" 
                         text="Creative developer with a passion for data and design.
