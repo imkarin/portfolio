@@ -5,7 +5,6 @@ import { useTheme } from 'next-themes';
 const Cursor = props => {
     const { theme, setTheme } = useTheme()
     const themeClass = theme === 'light' ? styles.lightTheme : styles.darkTheme
-
     const cursorRef = useRef(null)
 
     useEffect(() => {
