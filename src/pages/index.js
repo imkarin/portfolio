@@ -13,8 +13,6 @@ import SocialLinkList from '../components/organisms/SocialLinkList';
 import ProjectBlock from '../components/organisms/ProjectBlock';
 import ThemeChanger from '../components/organisms/ThemeChanger';
 
-import Test from '../components/test'
-
 
 // Fetch Github data (GraphQL)
 export async function getStaticProps() {

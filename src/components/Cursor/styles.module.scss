@@ -20,7 +20,7 @@
         border: 1px solid #ffffff52;
         
         z-index: 99999;
-        transition: top .05s, left .05s, transform .4s;
+        transition: top .05s, left .05s, transform .4s, border .4s .3s;
         transition-timing-function: ease-out;
         transform: translate(-10px, -10px);
 
@@ -53,6 +53,21 @@
             &.Yoda {
                 background-image: url('https://images.superguide.nl/R3I99wllpPmvytYyr7uoF38b0bA=/1200x630/smart/superguide.nl/s3fs-public/main_media/maker_legt_uit_waar_baby_yoda-verwarring_vandaan_komt.jpg?itok=OF9ol36e&nid=30357');
             }
+
+            &.Socials {
+                background-color: transparent;
+                background-size: contain;
+                background-repeat: no-repeat;
+                background-position-y: top;
+
+                &.LinkedIn {
+                    background-image: url('../../../public/img/hover_img/li-bubble.gif');
+                }
+
+                &.GitHub {
+                    background-image: url('../../../public/img/hover_img/gh-bubble.gif');
+                }    
+            }
         }
 
 
@@ -70,6 +85,8 @@
         // HOVER EFFECTS CURSOR 
         &.hoverLink {   // changes .Cursor on link hover
             transform: translate(-15px, -15px) scale(4, 4);
+            transition: .4s ease-out 0s, border .2s;
+            border: 1px solid rgba(255, 255, 255, 0);
 
             > div {
                 opacity: 0;
@@ -79,6 +96,12 @@
                     height: 30px;
                     opacity: .84;
                     transition: .4s ease-out 0s;
+
+                    &.GitHub {
+                        border-radius: 0;
+                        width: 30px;
+                        height: 22px;
+                    }
                 }
             }
         }

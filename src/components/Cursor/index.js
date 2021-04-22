@@ -8,10 +8,14 @@ const Cursor = props => {
     const cursorRef = useRef(null)
     
     // Classes based on state
+    const cursorImages = {
+        GitHub: `${styles.Socials} ${styles.GitHub}`,
+        LinkedIn: `${styles.Socials} ${styles.LinkedIn}` 
+    }
+
     const themeClass = theme === 'light' ? styles.lightTheme : styles.darkTheme
     const hoverLinkClass = props.hoverLink ? styles.hoverLink : ' '
-    const selectedCursor = styles.Pika  // This will later be determined by what the cursor is hovering over
-
+    const selectedCursor = cursorImages.GitHub // This will later be determined by what the cursor is hovering over
 
     useEffect(() => {
         document.addEventListener('mousemove', event => {
