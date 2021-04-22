@@ -1,6 +1,7 @@
 @import './variables';
 
 a, a:visited, a:hover, a:active {
+    cursor: none;
     font-size: 1em;
     line-height: 32px;
     font-weight: 700;

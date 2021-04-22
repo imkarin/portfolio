@@ -3,13 +3,16 @@ import * as _ from 'lodash';
 import client from '../apollo/apollo-client';
 import { gql } from '@apollo/client';
 import { useTheme } from 'next-themes';
+import { useEffect } from 'react';
 import Head from 'next/head';
+
+import Cursor from '../components/Cursor'
 import Layout from '../components/Layout';
 import LeftSideText from '../components/organisms/LeftSideText';
 import SocialLinkList from '../components/organisms/SocialLinkList';
 import ProjectBlock from '../components/organisms/ProjectBlock';
 import ThemeChanger from '../components/organisms/ThemeChanger';
-import { useEffect } from 'react';
+
 
 // Fetch Github data (GraphQL)
 export async function getStaticProps() {
@@ -85,6 +88,7 @@ export default function Home({ repos }) {
       </Head>
 
       <Layout>
+        <Cursor />
         <section className="text">
           <ThemeChanger />
           <LeftSideText title="Hello, I'm /Karin Meijvogel" 
