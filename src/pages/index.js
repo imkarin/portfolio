@@ -98,15 +98,13 @@ export default function Home({ repos }) {
         <Cursor hoverLink = {hoverLink} />
 
         <section className="text">
-        <Test mouseEnterHandler = { hoverLinkHandler }
-              mouseLeaveHandler = { hoverLinkHandler } />
           <ThemeChanger />
           <LeftSideText title="Hello, I'm /Karin Meijvogel" 
                         text="Creative developer with a passion for data and design.
                         I love learning about technology in all shapes and forms:
                         from front-end to back-end development, from web design to data science." />
           
-          <SocialLinkList socials={socials} />
+          <SocialLinkList socials={socials} hoverLinkHandler = { hoverLinkHandler } />
         </section>
 
         <section className="projects">

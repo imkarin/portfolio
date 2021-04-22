@@ -10,6 +10,7 @@ const Cursor = props => {
     // Classes based on state
     const themeClass = theme === 'light' ? styles.lightTheme : styles.darkTheme
     const hoverLinkClass = props.hoverLink ? styles.hoverLink : ' '
+    const selectedCursor = styles.Pika  // This will later be determined by what the cursor is hovering over
 
 
     useEffect(() => {
@@ -26,7 +27,7 @@ const Cursor = props => {
         <div className ={ styles.Cursor + ' ' + themeClass + ' ' + hoverLinkClass }
              ref = { cursorRef }>
             <div></div>
-            <div className={styles.Pika}></div>
+            <div className={ styles.cursorImg + ' ' + selectedCursor } />
         </div>
     )
 }

@@ -5,7 +5,12 @@ const SocialLinkList = props => {
     return (
         <div className={styles.SocialLinkList}>
             {props.socials.map((social) =>
-                <SocialLink key={social.imgAlt} href={social.href} imgSrc={social.imgSrc} imgAlt={social.imgAlt}>
+                <SocialLink 
+                hoverLinkHandler={props.hoverLinkHandler}
+                key={social.imgAlt} 
+                href={social.href} 
+                imgSrc={social.imgSrc} 
+                imgAlt={social.imgAlt}>
                     {social.text}
                 </SocialLink>  
             )}

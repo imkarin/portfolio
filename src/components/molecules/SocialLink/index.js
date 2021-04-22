@@ -7,7 +7,10 @@ const SocialLink = props => {
     const { theme, setTheme } = useTheme()
 
     return (
-        <div onMouseEnter={props.hoverLinkHandler} className={styles.SocialLink}>
+        <div
+        onMouseEnter={props.hoverLinkHandler} 
+        onMouseLeave={props.hoverLinkHandler}
+        className={styles.SocialLink}>
             <Link href={props.href}>
                 <a target='_blank'>
                     <Icon social src={props.imgSrc} alt={props.imgAlt} />
