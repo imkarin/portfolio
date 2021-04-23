@@ -12,7 +12,7 @@ const SocialLink = props => {
         onMouseLeave={props.hoverLinkHandler}
         className={styles.SocialLink}>
             <Link href={props.href}>
-                <a target='_blank'>
+                <a className='Social' target='_blank'>
                     <Icon social src={props.imgSrc} alt={props.imgAlt} />
                     {props.children}
                     <Icon social src={theme === 'light' ? './img/linkarrow.png' : './img/linkarrow-white.png'}

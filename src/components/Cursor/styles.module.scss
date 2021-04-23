@@ -55,6 +55,7 @@
             }
 
             &.Socials {
+                border-radius: 0;
                 background-color: transparent;
                 background-size: contain;
                 background-repeat: no-repeat;
@@ -85,7 +86,7 @@
         // HOVER EFFECTS CURSOR 
         &.hoverLink {   // changes .Cursor on link hover
             transform: translate(-15px, -15px) scale(4, 4);
-            transition: .4s ease-out 0s, border .2s;
+            transition: .4s ease-out 0s, border .2s, top .05s, left .05s;
             border: 1px solid rgba(255, 255, 255, 0);
 
             > div {
@@ -97,8 +98,7 @@
                     opacity: .84;
                     transition: .4s ease-out 0s;
 
-                    &.GitHub {
-                        border-radius: 0;
+                    &.Social {
                         width: 30px;
                         height: 22px;
                     }

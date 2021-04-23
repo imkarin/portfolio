@@ -1,23 +1,33 @@
 import styles from './styles.module.scss';
-import { useEffect, useRef } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { useTheme } from 'next-themes';
 
 const Cursor = props => {
     // States
     const { theme, setTheme } = useTheme()
     const cursorRef = useRef(null)
-    
+
     // Classes based on state
     const cursorImages = {
-        GitHub: `${styles.Socials} ${styles.GitHub}`,
-        LinkedIn: `${styles.Socials} ${styles.LinkedIn}` 
+        github: `${styles.Socials} ${styles.GitHub}`,
+        linkedin: `${styles.Socials} ${styles.LinkedIn}` 
     }
 
     const themeClass = theme === 'light' ? styles.lightTheme : styles.darkTheme
-    const hoverLinkClass = props.hoverLink ? styles.hoverLink : ' '
-    const selectedCursor = cursorImages.GitHub // This will later be determined by what the cursor is hovering over
+    const hoverLinkClass = props.hoverState.hovering ? styles.hoverLink : ' '
+
+    // Check if/which social link was hovered
+    let selectedCursor = ''
+    const hoverItemSocial = props.hoverState.hoverItem ? props.hoverState.hoverItem.childNodes[0].href : ''
+    for (const key in cursorImages) {
+        if (hoverItemSocial.includes(key)) {
+            selectedCursor = cursorImages[key]
+        }
+    }
+
 
     useEffect(() => {
+        // Move custom cursor to where the mouse is
         document.addEventListener('mousemove', event => {
             const {pageX, pageY} = event;
             const mouseX = pageX - 5
@@ -27,6 +37,7 @@ const Cursor = props => {
         })
     }, []);
 
+    
     return (
         <div className ={ styles.Cursor + ' ' + themeClass + ' ' + hoverLinkClass }
              ref = { cursorRef }>

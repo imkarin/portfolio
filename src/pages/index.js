@@ -64,7 +64,10 @@ export async function getStaticProps() {
 export default function Home({ repos }) {
   // States
   const { theme, setTheme } = useTheme()
-  const [hoverLink, setHoverLink] = useState(false)
+  const [hoverState, setHoverState] = useState({
+    hovering: false,
+    hoverItem: null,
+  })
 
   // Set default theme to dark 
   useEffect(() => {
@@ -83,7 +86,12 @@ export default function Home({ repos }) {
                     text: 'LinkedIn'}]
   
   // Function to update cursor on socialIcon hover
-  const hoverLinkHandler = (e) => (setHoverLink(!hoverLink))
+  const hoverLinkHandler = (e) => {
+    setHoverState({
+      hovering: !hoverState.hovering,
+      hoverItem: e.currentTarget
+    })
+  }
 
   return (
     <>
@@ -93,7 +101,7 @@ export default function Home({ repos }) {
       </Head>
 
       <Layout>
-        <Cursor hoverLink = {hoverLink} />
+        <Cursor hoverState = {hoverState} />
 
         <section className="text">
           <ThemeChanger />
